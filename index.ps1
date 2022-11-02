@@ -1,5 +1,12 @@
 Add-Type -AssemblyName PresentationFramework
-$xamlFile="C:\Users\OlaYZen\Documents\GitHub\PowershellXamlTest\MainWindow.xaml"
+
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/OlaYZen/PSXAML/main/MainWindow.xaml?token=GHSAT0AAAAAABZUKU5I2XAWPS2BI54QQXQUY3CMKVA -OutFile $PSScriptRoot"".\xamlui.xaml
+$xamlui = Import-Csv $PSScriptRoot"".\xamlui.xaml
+
+
+
+
+$xamlFile=$xamlui
 
 $inputXAML=Get-Content -Path $xamlFile -Raw
 $inputXAML=$inputXAML -replace 'mc:Ignorable="d"','' -replace "x:N","N" -replace '^<Win.*','<Window'
