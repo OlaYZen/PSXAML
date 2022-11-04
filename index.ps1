@@ -1,7 +1,7 @@
 Add-Type -AssemblyName PresentationFramework
 
 function OlaYZen {
-Clear-Host
+#Clear-Host
 write-host "                                           "
 write-host "==========================================="
 write-host "==========================================="
@@ -400,8 +400,10 @@ function Win10 {
 
 function Win11 {
     $WPFCompactView.Visibility = "Visible"
+    $WPFGridGroupBox.Visibility = "Visible"
     $WPFLabel_22h2.Visibility = "Visible"
     $WPFOSLabel.Content = "Windows 11 Detected" 
+    
 }
 
 
