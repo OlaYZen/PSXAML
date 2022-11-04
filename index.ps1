@@ -350,6 +350,33 @@ function Win10RC(){
         }
 }
 
+function RadButton1 {
+    if ($WPFRadioButton1.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function RadButton2 {
+    if ($WPFRadioButton2.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+function RadButton3 {
+    if ($WPFRadioButton3.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 2
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+
 function DisableAeroShake(){
     if ($WPFAeroShake.IsChecked)
         {
@@ -364,6 +391,7 @@ function DisableAeroShake(){
                 c:\windows\explorer.exe
             }
     }
+
 
 
 
@@ -457,6 +485,30 @@ $value5 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersio
 if($value5.SearchboxTaskbarMode -eq 0)
 {
     $WPFUnpin_Search11.IsChecked = $true
+}
+
+
+
+
+
+$WPFRadioButton1.Add_Checked({RadButton1})
+$WPFRadioButton1.Add_UnChecked({RadButton1})
+$WPFRadioButton2.Add_Checked({RadButton2})
+$WPFRadioButton2.Add_UnChecked({RadButton2})
+$WPFRadioButton3.Add_Checked({RadButton3})
+$WPFRadioButton3.Add_UnChecked({RadButton3})
+$value16 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout"
+if($value16.Start_Layout -eq 0)
+{
+    $WPFRadioButton1.IsChecked = $true 
+}
+elseif($value16.Start_Layout -eq 1)
+{
+    $WPFRadioButton2.IsChecked = $true 
+}
+elseif($value16.Start_Layout -eq 2)
+{
+    $WPFRadioButton3.IsChecked = $true 
 }
 
 
