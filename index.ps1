@@ -196,6 +196,35 @@ function Unpinabovewin10(){
             c:\windows\explorer.exe
         }
 }
+
+
+function Unpinabove(){
+    if ($WPFUnpin_All_Above_11.IsChecked)
+        {
+            $WPFUnpin_Search11.IsChecked = $true
+            $WPFUnpin_Chat.IsChecked = $true
+            $WPFUnpin_Widget.IsChecked = $true
+            $WPFUnpin_Task_View_11.IsChecked = $true
+
+        }
+    else
+        {
+            $WPFUnpin_Search11.IsChecked = $false
+            $WPFUnpin_Chat.IsChecked = $false
+            $WPFUnpin_Widget.IsChecked = $false
+            $WPFUnpin_Task_View_11.IsChecked = $false
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 1
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarDa" -Value 1
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarMn" -Value 1
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+
+
+
 function FileExt(){
     if ($WPFFileExtensions.IsChecked)
         {
