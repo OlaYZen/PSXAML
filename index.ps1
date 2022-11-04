@@ -32,33 +32,33 @@ catch {
 
 $xaml.SelectNodes("//*[@Name]") | ForEach-Object { Set-Variable -Name "WPF$($_.Name)" -Value $Form.FindName($_.Name) }
 
-
-function RemSearchwin10Checked(){
-
+function RemSearchwin10(){
+    if ($WPFUnpin_Search.IsChecked)
+        {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 0
             Stop-Process -n explorer
             c:\windows\explorer.exe
-
-}
-function RemSearchwin10UnChecked(){
+        }
+    else
+        {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 2
             Stop-Process -n explorer
             c:\windows\explorer.exe
+        }
 }
-
 
 
 #========================================================
 #   checkbox12 hides Search in win 10
 #========================================================
 
-$WPFUnpin_Search.Add_Checked{RemSearchwin10Checked}
-$WPFUnpin_Search.Add_UnChecked{RemSearchwin10UnChecked}
+$WPFUnpin_Search.Add_Checked{RemSearchwin10}
+$WPFUnpin_Search.Add_UnChecked{RemSearchwin10}
 
 $value1 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode"
 if($value1.SearchboxTaskbarMode -eq 0)
 {
-    $WPFUnpin_Search.Checked = $true
+    $WPFUnpin_Search.IsChecked = $true
 }
 
 
