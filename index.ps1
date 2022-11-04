@@ -251,7 +251,75 @@ function HideShell(){
         }
 }
 
+function ChangeTaskBarLocation(){
+    if ($WPFTaskbarLeft.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarAl" -Value 0
+            
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarAl" -Value 1
+        }
+}
 
+function RemTaskView(){
+    if ($WPFUnpin_Task_View_11.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 0
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 1
+        }
+}
+
+function RemChat(){
+    if ($WPFUnpin_Chat.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarMn" -Value 0
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarMn" -Value 1
+        }
+}
+
+function RemWidget(){
+    if ($WPFUnpin_Widget.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarDa" -Value 0
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarDa" -Value 1
+        }
+}
+
+function RemSearch(){
+    if ($WPFUnpin_Search11.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 0
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 1
+        }
+}
+function Win10RC(){
+    if ($WPFWin10RC.IsChecked)
+        {
+            reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
 
 
 
@@ -306,6 +374,71 @@ if($value11.TipbandDesiredVisibility -eq 0)
     $WPFUnpin_Touch_Keyboard.IsChecked = $true
 }
 
+
+
+
+$WPFTaskbarLeft.Add_Checked({ChangeTaskBarLocation})
+$WPFTaskbarLeft.Add_UnChecked({ChangeTaskBarLocation})
+$value = Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarAl"
+if($value.TaskbarAl -eq 0)
+{
+    $WPFTaskbarLeft.IsChecked = $true
+}
+
+$WPFUnpin_Task_View_11.Add_Checked({RemTaskView})
+$WPFUnpin_Task_View_11.Add_UnChecked({RemTaskView})
+$value2 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton"
+if($value2.ShowTaskViewButton -eq 0)
+{
+    $WPFUnpin_Task_View_11.IsChecked = $true
+}
+
+$WPFUnpin_Chat.Add_Checked({RemChat})
+$WPFUnpin_Chat.Add_UnChecked({RemChat})
+$value3 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarMn"
+if($value3.TaskbarMn -eq 0)
+{
+    $WPFUnpin_Chat.IsChecked = $true
+}
+
+$WPFUnpin_Widget.Add_Checked({RemWidget})
+$WPFUnpin_Widget.Add_UnChecked({RemWidget})
+$value4 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarDa"
+if($value4.TaskbarDa -eq 0)
+{
+    $WPFUnpin_Widget.IsChecked = $true
+}
+
+$WPFUnpin_Search11.Add_Checked({RemSearch})
+$WPFUnpin_Search11.Add_UnChecked({RemSearch})
+$value5 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode"
+if($value5.SearchboxTaskbarMode -eq 0)
+{
+    $WPFUnpin_Search11.IsChecked = $true
+}
+
+
+
+
+
+
+
+
+
+$WPFWin10RC.Add_Checked({Win10RC})
+$WPFWin10RC.Add_UnChecked({Win10RC})
+if(Test-Path 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32')
+{
+    $WPFWin10RC.IsChecked = $true
+}
+
+
+
+
+
+
+
+
 #========================================================
 #   Unpin/pin all
 #========================================================
@@ -340,7 +473,36 @@ else {
 
 
 
-Get-Variable WPFHiddenFiles
+$WPFUnpin_All_Above_11.Add_Checked({Unpinabove})
+$WPFUnpin_All_Above_11.Add_UnChecked({Unpinabove})
+if($value2.ShowTaskViewButton -eq 0)
+{
+    if($value3.TaskbarMn -eq 0)
+    {
+        if($value4.TaskbarDa -eq 0)
+        {
+            if($value5.SearchboxTaskbarMode -eq 0)
+            {
+            $WPFUnpin_All_Above_11.IsChecked = $true
+            }
+        }
+    }
+}
+else {
+    $WPFUnpin_All_Above_11.IsChecked = $false
+}
+
+
+
+$WPFCompactView.Add_Checked({CompactView})
+$WPFCompactView.Add_UnChecked({HiddenFiles})
+$value30 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "UseCompactMode"
+if($value30.UseCompactMode -eq 1)
+{
+    $WPFCompactView.IsChecked = $true
+}
+
+
 
 
 
@@ -375,6 +537,7 @@ $value4 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersio
 if($value4.TaskbarDa -eq 0)
 {
 }
+
 
 
 
