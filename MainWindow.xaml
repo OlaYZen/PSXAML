@@ -19,12 +19,18 @@
                     <CheckBox x:Name="Unpin_Touch_Keyboard" Content="Unpin Touch Keyboard" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <CheckBox x:Name="Unpin_All_Above" Content="Unpin All Above" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <Label x:Name="ExplainingLabel" Content="Windows Explorer might open after checking the boxes. Just close it" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label_22h2" Content="Start Menu 22H2" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
-                    <Grid x:Name="GridGroupBox" VerticalAlignment="Top" Height="87" Margin="10,269,207,0">
+                    <Label x:Name="label_22h2" Content="Start Menu 22H2" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                    <Grid x:Name="GridGroupBox" VerticalAlignment="Top" Height="87" Margin="10,240,207,0">
                         <RadioButton x:Name="RadioButton1" Content="Default" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                         <RadioButton x:Name="RadioButton2" Content="More Pins" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
                         <RadioButton x:Name="RadioButton3" Content="More Recommendations" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
                     </Grid>
+                    <CheckBox x:Name="TaskbarLeft" Content="ChangeTaskbar Location to left" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" ToolTip="Testingers"/>
+                    <CheckBox x:Name="Unpin_Search11" Content="Unpin Search" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Task_View_11" Content="Unpin Task View" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Widget" Content="Unpin Widget" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Chat" Content="Unpin Chat" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_All_Above_11" Content="Unpin All Above" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" IsChecked="False"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Tab2" Header="Explorer Settings">
@@ -40,11 +46,12 @@
             <TabItem x:Name="Tab3" Header="Windows Settings">
                 <Grid Background="White">
                     <Label x:Name="Label3" Content="Windows Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                    <CheckBox x:Name="ClockDisplay" Content="Taskbar Clock Display Seconds" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" Width="179"/>
+                    <CheckBox x:Name="ClockDisplay" Content="Taskbar Clock Display Seconds" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <CheckBox x:Name="AeroShake" Content="Disable Aero Shake" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
                     <Button x:Name="DebloatWin" Content="Debloat Windows" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
                     <Button x:Name="DebloatWin_Copy" Content="Install Applications" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
                     <Button x:Name="DebloatWin_Copy1" Content="Update Windows" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
+                    <CheckBox x:Name="Win10RC" Content="Windows 10 Right Click" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Tab4" Header="Powershell Settings">
