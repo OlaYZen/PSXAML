@@ -219,7 +219,6 @@ function HideShell(){
 
 
 
-
 $WPFUnpin_Search.Add_Checked{RemSearchwin10}
 $WPFUnpin_Search.Add_UnChecked{RemSearchwin10}
 $value6 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode"
@@ -345,8 +344,23 @@ if($value17.AutoCheckSelect -eq 1)
 
 
 
+function Win10 {
+    $WPFUnpin_Search.Visibility = "Visible"
+    $WPFUnpin_Task_View.Visibility = "Visible"
+    $WPFUnpin_Cortana.Visibility = "Visible"
+    $WPFUnpin_People.Visibility = "Visible"
+    $WPFUnpin_Ink_Workspace.Visibility = "Visible"
+    $WPFUnpin_Touch_Keyboard.Visibility = "Visible"
+    $WPFUnpin_All_Above.Visibility = "Visible"
+    $WPFClockDisplay.Visibility = "Visible"
+    $WPFOSLabel.Content = "Windows 10 Detected"
+}
 
-
+function Win11 {
+    $WPFCompactView.Visibility = "Visible"
+    $WPFLabel_22h2.Visibility = "Visible"
+    $WPFOSLabel.Content = "Windows 11 Detected" 
+}
 
 
 #========================================================
@@ -356,6 +370,44 @@ if($value17.AutoCheckSelect -eq 1)
 
 $WPFHideShell.Add_Checked({HideShell})
 $WPFHideShell.Add_UnChecked({HideShell})
+
+#Disable Both win 10 and 11 stuff
+
+$WPFUnpin_Search.Visibility = "Hidden"
+$WPFUnpin_Task_View.Visibility = "Hidden"
+$WPFUnpin_Cortana.Visibility = "Hidden"
+$WPFUnpin_People.Visibility = "Hidden"
+$WPFUnpin_Ink_Workspace.Visibility = "Hidden"
+$WPFUnpin_Touch_Keyboard.Visibility = "Hidden"
+$WPFUnpin_All_Above.Visibility = "Hidden"
+$WPFClockDisplay.Visibility = "Hidden"
+$WPFCompactView.Visibility = "Hidden"
+$WPFLabel_22h2.Visibility = "Hidden"
+
+
+if($value4.TaskbarDa -eq 0)
+{Win11}
+elseif($value4.TaskbarDa -eq 1)
+{Win11}
+elseif($value9.PeopleBand -eq 0)
+{Win10}
+elseif($value9.PeopleBand -eq 1)
+{Win10}
+elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+{Win10}
+elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
+{Win10}
+elseif($value11.TipbandDesiredVisibility -eq 0)
+{Win10}
+elseif($value11.TipbandDesiredVisibility -eq 1)
+{Win10}
+else {
+    $OSlabel.Text = "OS NOT DETECTED"
+}
+
+
+
+
 
 
 

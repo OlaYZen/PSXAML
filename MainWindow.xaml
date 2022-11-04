@@ -19,6 +19,10 @@
                     <CheckBox x:Name="Unpin_Touch_Keyboard" Content="Unpin Touch Keyboard" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <CheckBox x:Name="Unpin_All_Above" Content="Unpin All Above" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <Label x:Name="ExplainingLabel" Content="Windows Explorer might open after checking the boxes. Just close it" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_22h2" Content="Start Menu 22H2" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                    <RadioButton x:Name="RadioButton1" Content="Default" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="RadioButton2" Content="More Pins" HorizontalAlignment="Left" Margin="10,296,0,0" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="RadioButton3" Content="More Recommendations" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Tab2" Header="Explorer Settings">
@@ -28,6 +32,7 @@
                     <CheckBox x:Name="HiddenFiles" Content="Show Hidden Files in Explorer" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2" Width="179"/>
                     <CheckBox x:Name="FileExtensions" Content="Show File Extensions in Explorer" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
                     <CheckBox x:Name="ItemBoxes" Content="Item Check Boxes" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="CompactView" Content="Compact View in Explorer" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" IsChecked="False"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Tab3" Header="Windows Settings">
