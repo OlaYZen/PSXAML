@@ -362,7 +362,7 @@ function Win10 {
 function Win11 {
     $WPFCompactView.Visibility = "Visible"
     $WPFLabel_22h2.Visibility = "Visible"
-    $WPFGroupBox.Visibility = "Visible"
+    $WPFGroupBox.Opacity = "1"
     $WPFOSLabel.Content = "Windows 11 Detected" 
 }
 
@@ -387,6 +387,7 @@ $WPFUnpin_All_Above.Visibility = "Hidden"
 $WPFClockDisplay.Visibility = "Hidden"
 $WPFCompactView.Visibility = "Hidden"
 $WPFLabel_22h2.Visibility = "Hidden"
+$WPFGroupBox.Opacity = "0"
 
 
 if($value4.TaskbarDa -eq 0)
