@@ -332,7 +332,10 @@ if($value17.AutoCheckSelect -eq 1)
 
 
 
-
+$value4 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarDa"
+if($value4.TaskbarDa -eq 0)
+{
+}
 
 
 
