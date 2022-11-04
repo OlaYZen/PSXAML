@@ -33,8 +33,8 @@
             <TabItem x:Name="Tab3" Header="Windows Settings">
                 <Grid Background="White">
                     <Label x:Name="Label3" Content="Windows Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                    <CheckBox x:Name="ClockDisplay" Content="Show Hidden Files in Explorer" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2" Width="179"/>
-                    <CheckBox x:Name="AeroShake" Content="Show File Extensions in Explorer" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="ClockDisplay" Content="Taskbar Clock Display Seconds" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" Width="179"/>
+                    <CheckBox x:Name="AeroShake" Content="Disable Aero Shake" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
                     <Button x:Name="DebloatWin" Content="Debloat Windows" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
                     <Button x:Name="DebloatWin_Copy" Content="Install Applications" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
                     <Button x:Name="DebloatWin_Copy1" Content="Update Windows" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
@@ -43,13 +43,13 @@
             <TabItem x:Name="Tab4" Header="Powershell Settings">
                 <Grid Background="White">
                     <Label x:Name="Label4" Content="Powershell Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                    <CheckBox x:Name="HideShell" Content="Hide Console" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2" Width="179"/>
+                    <CheckBox x:Name="HideShell" Content="Hide Console" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="True" Grid.ColumnSpan="2" Width="179"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Tab5" Header="Version">
                 <Grid Background="White">
                     <Label x:Name="Label5" Content="Version" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                    <Label x:Name="ExplainingLabel_Copy" Content="Windows Detector" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="OSLabel" Content="Windows Detector" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="ExplainingLabel_Copy1" Content="Version 1.1.7 (Build 1170.01)" HorizontalAlignment="Left" Margin="279,469,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>

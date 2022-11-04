@@ -1,4 +1,5 @@
 Add-Type -AssemblyName PresentationFramework
+powershell.exe -WindowStyle Hidden -file > $null
 
 #Invoke-WebRequest -Uri https://raw.githubusercontent.com/OlaYZen/PSXAML/main/MainWindow.xaml?token=GHSAT0AAAAAABZUKU5I2XAWPS2BI54QQXQUY3CMKVA -OutFile $PSScriptRoot"".\xamlui.xaml
 #$xamlui = Import-Csv $PSScriptRoot"".\xamlui.xaml
@@ -47,19 +48,315 @@ function RemSearchwin10(){
         }
 }
 
+function RemTaskViewwin10(){
+    if ($WPFUnpin_Task_View.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
 
-#========================================================
-#   checkbox12 hides Search in win 10
-#========================================================
+function RemCortana(){
+    if ($WPFUnpin_Cortana.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+function RemPeople(){
+    if ($WPFUnpin_People.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function RemInkWS(){
+    if ($WPFUnpin_Ink_Workspace.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function RemTouchKey(){
+    if ($WPFUnpin_Touch_Keyboard.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+function Unpinabovewin10(){
+    if ($WPFUnpin_All_Above.IsChecked)
+        {
+            $WPFUnpin_Search.IsChecked = $true
+            $WPFUnpin_Task_View.IsChecked = $true
+            $WPFUnpin_Cortana.IsChecked = $true
+            $WPFUnpin_People.IsChecked = $true
+            $WPFUnpin_Ink_Workspace.IsChecked = $true
+            $WPFUnpin_Touch_Keyboard.IsChecked = $true
+
+        }
+    else
+        {
+            $WPFUnpin_Search.IsChecked = $false           
+            $WPFUnpin_Task_View.IsChecked = $false
+            $WPFUnpin_Cortana.IsChecked = $false
+            $WPFUnpin_People.IsChecked = $false
+            $WPFUnpin_Ink_Workspace.IsChecked = $false
+            $WPFUnpin_Touch_Keyboard.IsChecked = $false
+
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 2
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 1
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Value 1
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 1
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility" -Value 1
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+function FileExt(){
+    if ($WPFFileExtensions.IsChecked)
+        {
+            Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "HideFileExt" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "HideFileExt" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function HiddenFiles(){
+    if ($WPFHiddenFiles.IsChecked)
+        {
+            Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "Hidden" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "Hidden" -Value 2
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function ICBbutton(){
+    if ($WPFItemBoxes.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+function HideShell(){
+    if ($WPFHideShell.Checked)
+        {
+            powershell.exe -WindowStyle Hidden -file > $null
+        }
+    else
+        {
+            powershell.exe -WindowStyle Normal -file > $null
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $WPFUnpin_Search.Add_Checked{RemSearchwin10}
 $WPFUnpin_Search.Add_UnChecked{RemSearchwin10}
-
-$value1 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode"
-if($value1.SearchboxTaskbarMode -eq 0)
+$value6 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode"
+if($value6.SearchboxTaskbarMode -eq 0)
 {
     $WPFUnpin_Search.IsChecked = $true
 }
+
+$WPFUnpin_Task_View.Add_Checked({RemTaskViewwin10})
+$WPFUnpin_Task_View.Add_UnChecked({RemTaskViewwin10})
+$value7 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton"
+if($value7.ShowTaskViewButton -eq 0)
+{
+    $WPFUnpin_Task_View.IsChecked = $true
+}
+
+$WPFUnpin_Cortana.Add_Checked({RemCortana})
+$WPFUnpin_Cortana.Add_UnChecked({RemCortana})
+$value8 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowCortanaButton"
+if($value8.ShowCortanaButton -eq 0)
+{
+    $WPFUnpin_Cortana.IsChecked = $true
+}
+
+$WPFUnpin_People.Add_Checked({RemPeople})
+$WPFUnpin_People.Add_UnChecked({RemPeople})
+$value9 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand"
+if($value9.PeopleBand -eq 0)
+{
+    $WPFUnpin_People.IsChecked = $true
+}
+
+$WPFUnpin_Ink_Workspace.Add_Checked({RemInkWS})
+$WPFUnpin_Ink_Workspace.Add_UnChecked({RemInkWS})
+$value10 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility"
+if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+{
+    $WPFUnpin_Ink_Workspace.IsChecked = $true
+}
+
+$WPFUnpin_Touch_Keyboard.Add_Checked({RemTouchKey})
+$WPFUnpin_Touch_Keyboard.Add_UnChecked({RemTouchKey})
+$value11 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility"
+if($value11.TipbandDesiredVisibility -eq 0)
+{
+    $WPFUnpin_Touch_Keyboard.IsChecked = $true
+}
+
+#========================================================
+#   Unpin/pin all
+#========================================================
+
+$WPFUnpin_All_Above.Add_Checked({Unpinabovewin10})
+$WPFUnpin_All_Above.Add_UnChecked({Unpinabovewin10})
+
+if($value6.SearchboxTaskbarMode -eq 0)
+{
+    if($value7.ShowTaskViewButton -eq 0)
+    {
+        if($value8.ShowCortanaButton -eq 0)
+        {
+            if($value9.PeopleBand -eq 0)
+            {
+                if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+                {
+                    if($value11.TipbandDesiredVisibility -eq 0)
+                    {
+                        $WPFUnpin_All_Above.IsChecked = $true
+                    }
+                }
+            }
+        }
+
+    }
+}
+else {
+    $WPFUnpin_All_Above.IsChecked = $false
+}
+
+
+
+
+Get-Variable WPFHiddenFiles
+
+
+
+$WPFHiddenFiles.Add_Checked({HiddenFiles})
+$WPFHiddenFiles.Add_UnChecked({HiddenFiles})
+$value31 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt"
+if($value31.HideFileExt -eq 0)
+{
+    $WPFHiddenFiles.IsChecked = $true
+}
+
+$WPFFileExtensions.Add_Checked({FileExt})
+$WPFFileExtensions.Add_UnChecked({FileExt})
+$value32 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden"
+if($value32.Hidden -eq 1)
+{
+    $WPFFileExtensions.IsChecked = $true
+}
+
+
+$WPFItemBoxes.Add_Checked({ICBbutton})
+$WPFItemBoxes.Add_UnChecked({ICBbutton})
+$value17 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect"
+if($value17.AutoCheckSelect -eq 1)
+{
+    $WPFItemBoxes.IsChecked = $true 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#========================================================
+#   Tab 4 Powershell Settings
+#========================================================
+
+
+$WPFHideShell.Add_Checked({HideShell})
+$WPFHideShell.Add_UnChecked({HideShell})
+
 
 
 
