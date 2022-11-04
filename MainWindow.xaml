@@ -11,7 +11,7 @@
             <TabItem x:Name="Tab1" Header="Taskbar Settings">
                 <Grid Background="White">
                     <Label x:Name="Label1" Content="Taskbar Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
-                    <CheckBox x:Name="Unpin_Search" Content="Unpin Search" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Search" Content="Unpin Search" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" ToolTip="Testingers"/>
                     <CheckBox x:Name="Unpin_Task_View" Content="Unpin Task View" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <CheckBox x:Name="Unpin_Cortana" Content="Unpin Cortana" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <CheckBox x:Name="Unpin_People" Content="Unpin People" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" IsChecked="False"/>
@@ -20,7 +20,6 @@
                     <CheckBox x:Name="Unpin_All_Above" Content="Unpin All Above" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <Label x:Name="ExplainingLabel" Content="Windows Explorer might open after checking the boxes. Just close it" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="label_22h2" Content="Start Menu 22H2" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
-                    <GroupBox x:Name="GroupBox" Header="Start Layout" Margin="10,282,88,85"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Tab2" Header="Explorer Settings">

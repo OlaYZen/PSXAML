@@ -253,36 +253,6 @@ function HideShell(){
         }
 }
 
-function RadButton1 {
-    if ($RadioButton1.Checked)
-        {
-            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
-        }
-}
-
-function RadButton2 {
-    if ($RadioButton2.Checked)
-        {
-            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
-        }
-}
-function RadButton3 {
-    if ($RadioButton3.Checked)
-        {
-            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 2
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
-        }
-}
-
-
-
-
-
 
 
 
@@ -435,49 +405,6 @@ function Win11 {
     $WPFLabel_22h2.Visibility = "Visible"
     $WPFOSLabel.Content = "Windows 11 Detected" 
 }
-
-
-
-
-$RadioButton1 = New-Object System.Windows.Forms.RadioButton
-$RadioButton1.Location ='10,15'
-$RadioButton1.size = '200,20'
-$RadioButton1.Checked = $false
-$RadioButton1.Text = "Default" 
-$RadioButton1.Add_Click({RadButton1})
-$WPFGroupBox.Controls.Add($RadioButton1)
-
-$RadioButton2 = New-Object System.Windows.Forms.RadioButton
-$RadioButton2.Location ='10,35'
-$RadioButton2.size = '200,20'
-$RadioButton2.Checked = $False
-$RadioButton2.Text = "More Pins"
-$RadioButton2.Add_Click({RadButton2})
-$WPFGroupBox.Controls.Add($RadioButton2)
-
-$RadioButton3= New-Object System.Windows.Forms.RadioButton
-$RadioButton3.Location ='10,55'
-$RadioButton3.size = '200,20'
-$RadioButton3.Checked = $false
-$RadioButton3.Text = "More Recommendations"
-$RadioButton3.Add_Click({RadButton3})
-$WPFGroupBox.Controls.Add($RadioButton3)
-
-$value16 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout"
-if($value16.Start_Layout -eq 0)
-{
-    $RadioButton1.Checked = $true 
-}
-elseif($value16.Start_Layout -eq 1)
-{
-    $RadioButton2.Checked = $true 
-}
-elseif($value16.Start_Layout -eq 2)
-{
-    $RadioButton3.Checked = $true 
-}
-
-
 
 
 
