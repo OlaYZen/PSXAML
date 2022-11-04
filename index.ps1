@@ -403,7 +403,12 @@ function Win11 {
     $WPFGridGroupBox.Visibility = "Visible"
     $WPFLabel_22h2.Visibility = "Visible"
     $WPFOSLabel.Content = "Windows 11 Detected" 
-    
+    $WPFTaskbarLeft.Visibility = "Visible"
+    $WPFUnpin_Search11.Visibility = "Visible"
+    $WPFUnpin_Task_View_11.Visibility = "Visible"
+    $WPFUnpin_Widget.Visibility = "Visible"
+    $WPFUnpin_Chat.Visibility = "Visible"
+    $WPFUnpin_All_Above_11.Visibility = "Visible"
 }
 
 
@@ -430,6 +435,14 @@ $WPFClockDisplay.Visibility = "Hidden"
 $WPFCompactView.Visibility = "Hidden"
 $WPFLabel_22h2.Visibility = "Hidden"
 $WPFGridGroupBox.Visibility = "Hidden"
+$WPFTaskbarLeft.Visibility = "Hidden"
+$WPFUnpin_Search11.Visibility = "Hidden"
+$WPFUnpin_Task_View_11.Visibility = "Hidden"
+$WPFUnpin_Widget.Visibility = "Hidden"
+$WPFUnpin_Chat.Visibility = "Hidden"
+$WPFUnpin_All_Above_11.Visibility = "Hidden"
+
+
 
 
 if($value4.TaskbarDa -eq 0)
