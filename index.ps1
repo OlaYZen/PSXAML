@@ -439,23 +439,13 @@ function Win11 {
 
 
 
-#========================================================
-#   Start Layout on 22H2 Windows 11
-#========================================================
-
-$groupBox = New-Object System.Windows.Forms.GroupBox
-$groupBox.Location ='20,210'
-$groupBox.size = '160,80'
-$groupBox.Text = "Start Layout"
-$Tab1.Controls.Add($groupBox)
-
 $RadioButton1 = New-Object System.Windows.Forms.RadioButton
 $RadioButton1.Location ='10,15'
 $RadioButton1.size = '200,20'
 $RadioButton1.Checked = $false
 $RadioButton1.Text = "Default" 
 $RadioButton1.Add_Click({RadButton1})
-$groupBox.Controls.Add($RadioButton1)
+$WPFGroupBox.Controls.Add($RadioButton1)
 
 $RadioButton2 = New-Object System.Windows.Forms.RadioButton
 $RadioButton2.Location ='10,35'
@@ -463,7 +453,7 @@ $RadioButton2.size = '200,20'
 $RadioButton2.Checked = $False
 $RadioButton2.Text = "More Pins"
 $RadioButton2.Add_Click({RadButton2})
-$groupBox.Controls.Add($RadioButton2)
+$WPFGroupBox.Controls.Add($RadioButton2)
 
 $RadioButton3= New-Object System.Windows.Forms.RadioButton
 $RadioButton3.Location ='10,55'
@@ -471,7 +461,7 @@ $RadioButton3.size = '200,20'
 $RadioButton3.Checked = $false
 $RadioButton3.Text = "More Recommendations"
 $RadioButton3.Add_Click({RadButton3})
-$groupBox.Controls.Add($RadioButton3)
+$WPFGroupBox.Controls.Add($RadioButton3)
 
 $value16 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout"
 if($value16.Start_Layout -eq 0)
