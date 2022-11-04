@@ -593,6 +593,7 @@ function Win11 {
     $WPFUnpin_Widget.Visibility = "Visible"
     $WPFUnpin_Chat.Visibility = "Visible"
     $WPFUnpin_All_Above_11.Visibility = "Visible"
+    $WPFWin10RC.Visibility = "Visible"
 }
 
 
@@ -625,6 +626,8 @@ $WPFUnpin_Task_View_11.Visibility = "Hidden"
 $WPFUnpin_Widget.Visibility = "Hidden"
 $WPFUnpin_Chat.Visibility = "Hidden"
 $WPFUnpin_All_Above_11.Visibility = "Hidden"
+$WPFWin10RC.Visibility = "Hidden"
+
 
 
 
