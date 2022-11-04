@@ -362,9 +362,7 @@ function Win10 {
 function Win11 {
     $WPFCompactView.Visibility = "Visible"
     $WPFLabel_22h2.Visibility = "Visible"
-    $RadioButton1.Visibility = "Visible"
-    $RadioButton2.Visibility = "Visible"
-    $RadioButton3.Visibility = "Visible"
+    $WPFGroupBox.Visibility = "Visible"
     $WPFOSLabel.Content = "Windows 11 Detected" 
 }
 
