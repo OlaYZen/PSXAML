@@ -321,7 +321,20 @@ function Win10RC(){
         }
 }
 
-
+function DisableAeroShake(){
+    if ($WPFAeroShake.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+            {
+                Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking" -Value 0
+                Stop-Process -n explorer
+                c:\windows\explorer.exe
+            }
+    }
 
 
 
@@ -433,6 +446,14 @@ if(Test-Path 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2
 }
 
 
+$WPFAeroShake.Add_Checked({DisableAeroShake})
+$WPFAeroShake.Add_UnChecked({DisableAeroShake})
+
+$value14 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking"
+if($value14.DisallowShaking -eq 1)
+{
+    $WPFAeroShake.IsChecked = $true
+}
 
 
 
