@@ -387,7 +387,6 @@ $WPFUnpin_All_Above.Visibility = "Hidden"
 $WPFClockDisplay.Visibility = "Hidden"
 $WPFCompactView.Visibility = "Hidden"
 $WPFLabel_22h2.Visibility = "Hidden"
-$WPFGroupBox.Visibility = "Hidden"
 
 
 if($value4.TaskbarDa -eq 0)
