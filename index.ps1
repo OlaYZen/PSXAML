@@ -359,6 +359,9 @@ function Win10 {
 function Win11 {
     $WPFCompactView.Visibility = "Visible"
     $WPFLabel_22h2.Visibility = "Visible"
+    $RadioButton1.Visibility = "Visible"
+    $RadioButton2.Visibility = "Visible"
+    $RadioButton3.Visibility = "Visible"
     $WPFOSLabel.Content = "Windows 11 Detected" 
 }
 
@@ -383,6 +386,9 @@ $WPFUnpin_All_Above.Visibility = "Hidden"
 $WPFClockDisplay.Visibility = "Hidden"
 $WPFCompactView.Visibility = "Hidden"
 $WPFLabel_22h2.Visibility = "Hidden"
+$RadioButton1.Visibility = "Hidden"
+$RadioButton2.Visibility = "Hidden"
+$RadioButton3.Visibility = "Hidden"
 
 
 if($value4.TaskbarDa -eq 0)
