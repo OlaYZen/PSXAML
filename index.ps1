@@ -1,6 +1,4 @@
 Add-Type -AssemblyName PresentationFramework
-[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing") 
-[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 
 function OlaYZen {
 Clear-Host
@@ -429,6 +427,7 @@ $WPFUnpin_All_Above.Visibility = "Hidden"
 $WPFClockDisplay.Visibility = "Hidden"
 $WPFCompactView.Visibility = "Hidden"
 $WPFLabel_22h2.Visibility = "Hidden"
+$WPFGridGroupBox.Visibility = "Hidden"
 
 
 if($value4.TaskbarDa -eq 0)
